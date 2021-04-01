@@ -1,0 +1,7 @@
+CREATE DATABASE example;
+
+USE example;
+
+CREATE TABLE exampletb(
+    id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY
+)

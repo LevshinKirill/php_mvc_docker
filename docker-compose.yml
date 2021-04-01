@@ -5,21 +5,21 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./php/Dockerfile
     ports:
       - 80:80
     volumes:
       - ./src:/var/www/html/
 
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    build:
+      context: .
+      dockerfile: ./database/Dockerfile
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
-    volumes:
-      - mysql-data:/var/lib/mysql
-
+    
+  
   adminer:
     image: adminer
     restart: always
